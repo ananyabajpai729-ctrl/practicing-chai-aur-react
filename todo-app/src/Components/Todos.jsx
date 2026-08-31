@@ -1,8 +1,17 @@
-function Todos(){
+import React from 'react'
+import TodoItem from './TodoItem.jsx'
+
+const Todos = (props) => {
     return(
-        <>
-            <h2>Todos Works</h2>
-        </>
+        <div className = "container">
+            <h3>My Todo List</h3>
+            {
+                props.todos.map((todo) =>{
+                    return <TodoItem todo = {todo} onDelete = {props.onDelete}/>
+                })
+            }
+            
+        </div>
     )
 }
 
