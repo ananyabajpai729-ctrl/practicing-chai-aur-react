@@ -13,6 +13,17 @@ function App() {
     }))
   }
 
+  const addTodo = (title, desc) =>{
+    let sno = todos.length + 1;
+    let newTodo = {
+      sno: sno,
+      title : title,
+      description: desc
+    }
+    setTodos([...todos, newTodo]);
+    console.log("I am adding this todo", newTodo);
+  }
+
   const [todos, setTodos] = useState([
     {
       sno:1,
@@ -43,7 +54,7 @@ function App() {
   return(
     <>
       <Navbar />
-      <AddTodo />
+      <AddTodo addTodo = {addTodo}/>
       <Todos todos = {todos} onDelete = {onDelete}/>
       <Footer />
     </>
