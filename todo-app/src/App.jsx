@@ -1,14 +1,19 @@
 import { useState } from 'react'
 import Navbar from './Components/Navbar.jsx'
 import Todos from './Components/Todos.jsx'
+import AddTodo from './Components/AddTodo.jsx'
 import Footer from './Components/Footer.jsx'
 import './App.css'
 
 function App() {
   function onDelete(todo){
     console.log("You are onDelete", todo);
+    setTodos(todos.filter((e)=>{
+      return e !== todo;
+    }))
   }
-  let todos = [
+
+  const [todos, setTodos] = useState([
     {
       sno:1,
       title : "Study frontend",
@@ -34,10 +39,11 @@ function App() {
       title : "Chant",
       description: "Chant Hari Nama with full devotion"
     }
-  ]
+  ])
   return(
     <>
       <Navbar />
+      <AddTodo />
       <Todos todos = {todos} onDelete = {onDelete}/>
       <Footer />
     </>
