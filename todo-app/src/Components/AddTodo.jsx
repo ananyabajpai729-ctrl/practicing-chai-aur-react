@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 
 function AddTodo(props) {
     const [title, setTitle] = useState("");
-    const[desc, setDesc] = useState("");
+    const [desc, setDesc] = useState("");
     const submit = (e)=>{
         e.preventDefault();
         if(!title || !desc){
@@ -11,6 +11,8 @@ function AddTodo(props) {
         }
         
         props.addTodo(title, desc);
+        setTitle("");
+        setDesc("");
     }
     return (
         <>
